@@ -1,0 +1,15 @@
+---
+
+  - name: playbook
+    hosts: zone1
+	become: yes
+	become_user: root
+	taks:
+	  - name: install httpd
+	    yum:
+		  name: httpd
+		  state: latest
+	  - name: restart service httpd
+	    service:
+		  name: httpd
+		  state: restarted
